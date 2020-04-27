@@ -37,7 +37,7 @@ const server = new Promise((resolve, reject) => {
       middleware.validateRequest(),
       // Adding notFound and Conflict Middleware
       mockResourceNotFound(mockMemoryDB),
-      // id is the primary key or property to look for conflict 409
+      // id is the primary key or property to look for conflicts 409
       mockPostConflict(mockMemoryDB, 'id'),
       middleware.mock(mockMemoryDB)
     )
@@ -53,7 +53,6 @@ const server = new Promise((resolve, reject) => {
 })
 
 server.then(app => {
-  console.log('server 1')
   app.listen(3000, () => {
     console.log('Service is now running')
   })
