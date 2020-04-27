@@ -1,0 +1,39 @@
+{
+  "name": "swagger-express-mock-not-found-conflict",
+  "version": "1.0.0",
+  "description": "Swagger mock util middleware",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha test/swagger-express-mock-not-found-conflict.spec-test.js  --exit",
+    "start": "node ./sample/index.js",
+    "lint": "npx standard",
+    "lint:fix": "npx standard --fix"
+  },
+  "keywords": [
+    "swagger",
+    "mock",
+    "express",
+    "notFound",
+    "conflict",
+    "middleware"
+  ],
+  "standard": {
+    "env": [
+      "mocha"
+    ]
+  },
+  "author": "Osvaldo Aguilar Lauzurique <osvaldo2627@gmail.com>",
+  "license": "ISC",
+  "dependencies": {
+    "agnostic-http-error-handler": "^1.0.1",
+    "axios": "^0.19.2",
+    "express": "^4.17.1",
+    "swagger-express-middleware": "^4.0.0",
+    "swagger-ui-express": "^4.1.4"
+  },
+  "devDependencies": {
+    "mocha": "^7.1.2",
+    "standard": "^14.3.3",
+    "supertest": "^4.0.2"
+  }
+}

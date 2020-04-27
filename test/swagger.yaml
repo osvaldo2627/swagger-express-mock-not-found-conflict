@@ -1,0 +1,220 @@
+swagger: "2.0"
+info:
+  description: "Holiday API, a tutorial for a swagger base minimalist api"
+  version: "1.0.0"
+  title: "Holiday API"
+  contact:
+    email: "osvaldo2627@gmail.com"
+  license:
+    name: "Apache 2.0"
+    url: "http://www.apache.org/licenses/LICENSE-2.0.html"
+basePath: /holiday-api
+consumes:
+  - application/json
+produces:
+  - application/json
+tags:
+  - name: "Holiday"
+    description: "Holiday entity"
+schemes:
+  - "http"
+
+definitions:
+  Holiday:
+    type: "object"
+    properties:
+      id:
+        type: "string"
+        readOnly: true
+      name:
+        type: "string"
+      address:
+        type: "string"
+      country:
+        type: "string"
+      adultPrice:
+        type: "number"
+      childPrice:
+        type: "number"
+      description:
+        type: "string"
+      minAmountPerson: 
+        type: "integer"
+        minimum: 1
+      maxAmountPerson:
+        type: "integer"
+    required:
+      - "name"
+      - "address"
+      - "minAmountPerson"
+  
+  HolidayUpdate:
+    type: "object"
+    properties:
+      id:
+        type: "string"
+        readOnly: true
+      name:
+        type: "string"
+      address:
+        type: "string"
+      country:
+        type: "string"
+      adultPrice:
+        type: "number"
+      childPrice:
+        type: "number"
+      description:
+        type: "string"
+      minAmountPerson: 
+        type: "integer"
+        minimum: 1
+      maxAmountPerson:
+        type: "integer"
+      
+parameters:
+  sort:
+    name: sort
+    in: query
+    description: 'Sort resources as per model specification'
+    required: false
+    type: string
+  filter:
+    name: filter
+    in: query
+    description: 'Filter resources as per model specification'
+    required: false
+    type: string
+  fields:
+    name: fields
+    in: query
+    description: 'Limit response payloads as per model specification'
+    required: false
+    type: string
+  offset:
+    name: offset
+    in: query
+    description: Pagination offset
+    required: false
+    type: number
+    format: integer
+    minimum: 0
+  limit:
+    name: limit
+    in: query
+    description: Pagination limit
+    required: false
+    type: number
+    format: integer
+    minimum: 1
+
+paths:
+  /holidays:
+    get:
+      tags:
+        - Holiday
+      parameters:
+        - $ref: '#/parameters/sort'
+        - $ref: '#/parameters/filter'
+        - $ref: '#/parameters/fields'
+        - $ref: '#/parameters/offset'
+        - $ref: '#/parameters/limit'
+      summary: "Return all holidays"
+      description: "Return an array of holidays"
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            items:
+              $ref: "#/definitions/Holiday"
+            type: array    
+
+    post:
+      tags:
+        - Holiday
+      summary: "Create a holiday"
+      description: ""
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "Create a holiday"
+        required: true
+        schema:
+          $ref: '#/definitions/Holiday'
+      responses:
+        200:
+          description: "Successful operation"
+          schema:
+            $ref: "#/definitions/Holiday"
+        400:
+          description: "Invalid Holiday"
+        409:
+          description: "Conflic"
+          
+  /holidays/{id}:
+    get:
+      tags:
+        - Holiday
+      summary: "Find a holiday by ID"
+      description: ""
+      parameters:
+      - name: "id"
+        in: "path"
+        description: "ID of the holiday to be fetched"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            $ref: "#/definitions/Holiday"
+        404:
+          description: "Holiday not found"
+    delete:
+      tags:
+      - Holiday
+      summary: "Delete a holiday by ID"
+      parameters:
+      - name: "id"
+        in: "path"
+        description: "ID of the holiday to be deleted"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            $ref: "#/definitions/Holiday"
+        404:
+          description: "Holiday not found"
+          
+    patch:      
+      tags:
+      - Holiday
+      summary: "Update a holiday"
+      description: "Update a holiday by id"
+      parameters:
+      - name: "id"
+        in: "path"
+        description: "ID of the holiday to be deleted"
+        required: true
+        type: "string"
+      - in: "body"
+        name: "body"
+        description: "Holiday data to be updated"
+        required: true
+        schema:
+          $ref: "#/definitions/HolidayUpdate"
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            $ref: "#/definitions/Holiday"
+        400:
+          description: "Invalid Holiday payload"
+        404:
+          description: "Holiday not found"
+        
+externalDocs:
+  description: "Find out more about this api"
+  url: "https://blog.valdobox.com/enterprise-microservices-nodejs-tutorial"
