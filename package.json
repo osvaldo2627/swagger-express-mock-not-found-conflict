@@ -1,6 +1,6 @@
 {
   "name": "swagger-express-mock-not-found-conflict",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Swagger mock util middleware",
   "main": "index.js",
   "scripts": {
