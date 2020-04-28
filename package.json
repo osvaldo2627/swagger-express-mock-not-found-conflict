@@ -35,5 +35,13 @@
     "mocha": "^7.1.2",
     "standard": "^14.3.3",
     "supertest": "^4.0.2"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/osvaldo2627/swagger-express-mock-not-found-conflict.git"
+  },
+  "bugs": {
+    "url": "https://github.com/osvaldo2627/swagger-express-mock-not-found-conflict.git/issues"
+  },
+  "homepage": "https://github.com/osvaldo2627/swagger-express-mock-not-found-conflict.git#readme"
 }
