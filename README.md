@@ -1,8 +1,5 @@
 # Context
-With the [Mock middleware](https://apitools.dev/swagger-express-middleware/docs/middleware/mock.html) from swagger-express it is possible to 
-have a usable fully mocked API with zero logic code. 
-It takes the swagger spec as a base
-and applies some intelligence, in order to automatically mock the implementation of controllers and datastore. The result is cool, because we may have our express application responding to all HTTP request as well as a decent demo persistence store. The mock feature gets handy when we what to demo or follow a TDD implementation. 
+[Mock middleware](https://apitools.dev/swagger-express-middleware/docs/middleware/mock.html) from swagger-express allows us to have a fully usable mocked API with zero logic code. It takes the swagger spec as a base and applies some intelligence, in order to automatically mock the implementation of controllers and datastore. The result is a cool express application responding to all HTTP requests as well as a decent demo data persistence store. The mock feature gets handy for prototyping, demo, and TDD implementation.
 
 # swagger-express-mock-not-found-conflict
 This package provides the following two utils middlewares to work 
