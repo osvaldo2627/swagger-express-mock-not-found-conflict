@@ -32,7 +32,7 @@
     "swagger-ui-express": "^4.1.4"
   },
   "devDependencies": {
-    "mocha": "^7.1.2",
+    "mocha": "^10.2.0",
     "standard": "^14.3.3",
     "supertest": "^4.0.2"
   },
